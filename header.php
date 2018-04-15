@@ -13,7 +13,7 @@
 	<style>
 	
 		html { 
-		  background: url(nature.jpg) no-repeat center center fixed; 
+		  background: url(images/nature.jpg) no-repeat center center fixed; 
 		  -webkit-background-size: cover;
 		  -moz-background-size: cover;
 		  -o-background-size: cover;
