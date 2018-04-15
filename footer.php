@@ -13,13 +13,16 @@
 			
 		});
 		
-		var diary = document.getElementById('diary');
-		diary.addEventListener('keyup', function(){
+		$('#diary').bind('input propertychange', function(){
 			
-			var ourRequest = new XMLHttpRequest();
-			ourRequest.open('POST', 'updatedb.php', true);
-			ourRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			ourRequest.send({content:diary.value()});
+			$.ajax({
+			  method: "POST",
+			  url: "localhost/diary/updatedb.php",
+			  data: { contents: $('#diary').val() }
+			})
+			  .done(function( msg ) {
+				alert( "Data Saved: " + msg );
+			  });
 			
 		})
 	
