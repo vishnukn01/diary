@@ -22,7 +22,7 @@ $q = "
 	 ";
 $result = $link->query($q);
 if(!$result){
-	echo '<strong>Failed to create table</strong>';
+	//echo '<strong>Failed to create table</strong>';
 }
 
 ?>

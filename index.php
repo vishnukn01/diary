@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
 				 ";
 			$result = $link->query($q);
 			if($result->num_rows != 0){
-				$error = 'That email has already been registered';
+				$errors = 'That email has already been registered';
 			}else{
 				// proceed with registeration
 				$query = "
@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
 					}
 					
 				}else{
-					$error = 'Failed to register. Please try again.'; 
+					$errors = 'Failed to register. Please try again.'; 
 				}		
 			}
 		}else{
@@ -92,10 +92,10 @@ if(isset($_POST['submit'])){
 					header('Location: loggedInPage.php');
 					
 				}else{
-					$error = 'Email and password do not match!';
+					$errors .='Email and password do not match!';
 				}	
 			}else{
-				$error = 'That email has not been registered!';
+				$errors = 'That email has not been registered!';
 			}
 		}	
 	}
