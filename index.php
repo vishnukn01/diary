@@ -18,7 +18,12 @@ if(isset($_POST['submit'])){
 	
 	if($_POST['email'] == ''){
 		$errors .= 'An email address is required<br>';
-	} 
+	}
+	
+	if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false){
+		$errors .= "The email address is not valid<br>";
+	}
+	
 	if($_POST['password'] == ''){
 		$errors .= 'A password is required<br>';
 	}
@@ -141,7 +146,7 @@ include('header.php');
 	
 		  <h5 class='headings'>Have an account? Log in</h5>
 		  <div class="form-group">
-			<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter registered email">
+			<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter registered email" value="<?php if(isset($_POST['email'])){echo $_POST['email']; } ?>">
 		  </div>
 		  <div class="form-group">
 			<input type="password" class="form-control" name="password" id="password" placeholder="Password">
