@@ -1,4 +1,5 @@
 <?php
+include('header.php');
 session_start();
 if(array_key_exists('id', $_SESSION)){
 	include('header.php');
