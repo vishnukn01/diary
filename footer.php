@@ -17,7 +17,7 @@
 			
 			$.ajax({
 			  method: "POST",
-			  url: "localhost/diary/updatedb.php",
+			  url: "updatedb.php",
 			  data: { contents: $('#diary').val() }
 			})
 			  .done(function( msg ) {
