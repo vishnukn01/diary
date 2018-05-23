@@ -12,7 +12,7 @@
 		});
 		
 		$("#diary").on('change keyup paste', function() {
-			alert('asdf');
+			alert('This is an alert message');
 		});
 	
 	</script>
