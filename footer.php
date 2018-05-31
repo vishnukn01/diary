@@ -11,8 +11,13 @@
 			
 		});
 		
-		$("#diary").on('change keyup paste', function() {
-			alert('This is an alert message');
+		$("#diary").on('keyup paste', function() {
+			$.ajax({
+			  method: "POST",
+			  url: "updatedb.php",
+			  data: { value: $('#diary').val() }
+			})
+			  
 		});
 	
 	</script>

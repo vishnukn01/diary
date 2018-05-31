@@ -1,16 +1,16 @@
 <?php
 session_start();
-if(!empty($_POST['content'])){
-	include('connection.php');
-	$content = mysqli_real_escape_string($link, $_POST['content']);
-	$q = "
-		 UPDATE users
-		 SET diary = '$content'	
-		 WHERE id = $_SESSION['id']
-		 ";
-	$result = $link->query($q);
-	if($result){
-		echo 'Done';
-	}	
-}
+	if(array_key_exists('value', $_POST)){
+
+		include('connection.php');
+		$value = $_POST['value'];
+		$id = $_SESSION['id'];
+		$q = "UPDATE `users` 
+			  SET `diary`='$value'
+			  WHERE id=$id
+			  ";
+
+		$result = $link->query($q);
+		
+	}
 ?>

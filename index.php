@@ -37,11 +37,10 @@ if(isset($_POST['submit'])){
 			$email = mysqli_real_escape_string($link, $_POST['email']);
 			$password = mysqli_real_escape_string($link, $_POST['password']);
 			
-			$q = "
+			$result = $link->query("
 					SELECT * FROM users
-					WHERE email = '$email'
-				 ";
-			$result = $link->query($q);
+					WHERE email='$email'
+				 ");
 			if($result->num_rows != 0){
 				$errors = 'That email has already been registered';
 			}else{

@@ -46,8 +46,19 @@
 			font-weight: bold;
 			color: #000080;
 		}
-		#textarea_container, textarea{
+		#textarea_container{
 			width:100%;
+		}
+		textarea{
+			width:95%;
+		}
+
+		.navbar-brand{
+			color: #fff;
+		}
+
+		#textarea_container{
+			margin:20px;
 		}
 		
 	</style>
