@@ -12,11 +12,15 @@
 		});
 		
 		$("#diary").on('keyup paste', function() {
+
 			$.ajax({
 			  method: "POST",
 			  url: "updatedb.php",
-			  data: { value: $('#diary').val() }
+			  data: { value: $("#diary").val() }
 			})
+			  // .done(function( msg ) {
+			  //   alert( "Data Saved: " + msg );
+			  // });
 			  
 		});
 	

@@ -34,8 +34,8 @@ if(isset($_POST['submit'])){
 		if($_POST['signingUp'] == 1){
 		
 			//check if the email has already been registered
-			$email = mysqli_real_escape_string($link, $_POST['email']);
-			$password = mysqli_real_escape_string($link, $_POST['password']);
+			$email = $link->real_escape_string($_POST['email']);
+			$password = $link->real_escape_string($_POST['password']);
 			
 			$result = $link->query("
 					SELECT * FROM users
@@ -62,9 +62,9 @@ if(isset($_POST['submit'])){
 							 ";
 					$result = $link->query($query);
 					if($result){
-						$_SESSION['id'] = $link->insert_id;
+						$_SESSION['id'] = $insertId;
 						if($_POST['stayLoggedIn']){
-							setcookie('id', $link->insert_id , time() + (86400 * 30));
+							setcookie('id', $insertId , time() + (60 * 60));
 						}
 						header('Location: loggedInPage.php');
 					}
@@ -77,8 +77,8 @@ if(isset($_POST['submit'])){
 		
 			// log in
 			// check if email is registerd
-			$email = mysqli_real_escape_string($link, $_POST['email']);
-			$pass = mysqli_real_escape_string($link, $_POST['password']);
+			$email = $link->real_escape_string($_POST['email']);
+			$pass = $link->real_escape_string($_POST['password']);
 			$query = "SELECT * FROM users
 					  WHERE email = '$email'
 					";
@@ -88,11 +88,10 @@ if(isset($_POST['submit'])){
 				$row = $result->fetch_assoc();
 				$insertId = $row['id'];
 				if($row['password'] == md5( md5($insertId). $pass )){
-					
-					if(array_key_exists('id',$_COOKIE)){
-						setcookie('id','',time() + (86400 * 30));
-					}
 					$_SESSION['id'] = $row['id'];
+					if(array_key_exists('id',$_COOKIE)){
+						setcookie('id','',time() + (60 * 60));
+					}
 					header('Location: loggedInPage.php');
 					
 				}else{
