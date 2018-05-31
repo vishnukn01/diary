@@ -12,15 +12,15 @@ if(array_key_exists('id', $_SESSION)){
 ?>
 
 <nav class="navbar navbar-light bg-faded">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href=""><h3>Diary</h3></a>
-		    </div>
+	<div class="container-fluid">
+		<div class="navbar-header">
+		    <a class="navbar-brand" href=""><h3>Diary</h3></a>
+		</div>
 		   
-		    <div class="pull-xs-right">
-		      <a href="index.php?loggedout=1"><button class="btn btn-success">Log out</button></a>
-		    </div>
-		  </div>
+		<div class="pull-xs-right">
+		    <a href="index.php?loggedout=1"><button class="btn btn-success">Log out</button></a>
+		</div>
+	</div>
 </nav>
 
 <div class='container-fluid' id='textarea_container'>
